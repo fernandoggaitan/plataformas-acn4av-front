@@ -2,7 +2,7 @@ import Row from 'react-bootstrap/Row';
 
 //import img from '../img/90.jpg';
 
-import CandidatoItem from './CandidatoItem';
+import CandidatoItem from '../components/CandidatoItem';
 
 const candidatos = [
     {
@@ -28,18 +28,21 @@ const candidatos = [
 export default function CandidatosLista() {
 
     return (
-        <Row>
-            {
-                candidatos.map( c => (
-                    <CandidatoItem 
-                        key={c.ID}
-                        nombre={c.nombre} 
-                        imagen={c.imagen}
-                        initialVotos={c.votos}
-                    />
-                ))
-            }
-        </Row>
+        <>
+            <h1> Pokemones </h1>
+            <Row>
+                {
+                    candidatos.map( c => (
+                        <CandidatoItem 
+                            key={c.ID}
+                            nombre={c.nombre} 
+                            imagen={c.imagen}
+                            initialVotos={c.votos}
+                        />
+                    ))
+                }
+            </Row>
+        </>
     )
 
 }
