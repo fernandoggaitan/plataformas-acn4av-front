@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 
 import { useState, useEffect } from "react"
+import { Link } from 'react-router-dom';
 
 export default function Pokemons(){
 
@@ -8,6 +9,7 @@ export default function Pokemons(){
     const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon");
     const [previous, setPrevious] = useState(null);
     const [next, setNext] = useState(null);
+
 
     useEffect( () => {
         getLista();
@@ -49,7 +51,9 @@ export default function Pokemons(){
                     lista.map( p => (
                         <li key={p.name}>
                             <img src={getShinyImageUrl(p.url)} alt={p.name} />
-                            {p.name}
+                            <Link to={`/pokemon/${p.name}`}>
+                                {p.name}
+                            </Link>                            
                         </li>
                     ))
                 }
