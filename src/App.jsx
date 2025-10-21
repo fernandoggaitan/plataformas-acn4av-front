@@ -4,7 +4,9 @@ import Container from 'react-bootstrap/Container';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
+//Contextos
 import AuthProvider from '@contexts/AuthContext';
+import ProtectedRoute from '@contexts//ProtectedRoute';
 
 //Importar las páginas.
 import Inicio from '@pages/Inicio';
@@ -33,7 +35,11 @@ export default function App() {
             <Route path='/pokemones' element={<Pokemons />} />
             <Route path='/pokemon/:nombre' element={<Pokemon />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/dashboard' element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
             <Route path="*" element={<Error404 />} />
           </Routes>
         </Container>
